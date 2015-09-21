@@ -1,0 +1,32 @@
+{
+  "name": "2015-08-solo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "description": "#Summary Pencil Me In is an application for professionals who rely their daily practice based on a schedule.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtapia5070/2015-08-solo.git"
+  },
+  "author": "Victoria <tapia.victoria5070@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtapia5070/2015-08-solo/issues"
+  },
+  "homepage": "https://github.com/vtapia5070/2015-08-solo#readme",
+  "devDependencies": {
+    "bower": "^1.5.2"
+  }
+}
