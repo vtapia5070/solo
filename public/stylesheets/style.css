@@ -1,8 +1,13 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+td {
+  color: #fff;
+  font-family: 'century gothic';
+  font-weight: bold;
+  text-align: center;
 }
-
-a {
-  color: #00B7FF;
+.calendarContainer {
+  background-color: #56B47B;
+  position: center;
+}
+.dayBody td:hover {
+  background-color: #ddd;
 }
