@@ -30,7 +30,11 @@
       </div>
     </div>
 
-
+    <div class="scheduleContainer" ng-controller="scheduleController">
+      <h3>September 21, 2015</h3>
+      <div class="schedule" ng-hide="hasSchedule()"></div>
+      <div class="noSchedule" ng-show="!hasScedule()">No appointments Scheduled</div>
+    </div>
 
       <script src="/javascripts/calendar.js"></script>
       <script src="/javascripts/services.js"></script>
