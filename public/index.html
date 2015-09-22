@@ -32,11 +32,21 @@
 
     <div class="scheduleContainer" ng-controller="scheduleController">
       <h3>September 21, 2015</h3>
+      <div>Creat new event</div>
+     <form name="newAppt" ng-controller="scheduleController as scheduleCtrl">
+
+        <label for="exampleInput">Time:</label>
+          <input type="time" id="timeInput" name="time" ng-model="request.time"
+            placeholder="HH:mm" min="08:00" max="17:00:00" required />
+        <input type="text" name="name" ng-model="user.name" placeholder="name" required>
+        <input type="text" name="email" ng-model="user.email" placeholder="email" required>
+        <input class="description" type="text" name="description" ng-model="request.description" placeholder="description" required>
       <div class="schedule" ng-hide="hasSchedule()"></div>
       <div class="noSchedule" ng-show="!hasScedule()">No appointments Scheduled</div>
     </div>
 
       <script src="/javascripts/calendar.js"></script>
-      <script src="/javascripts/services.js"></script>
+      <script src="/javascripts/calServices.js"></script>
+
     </body>
 </html>
