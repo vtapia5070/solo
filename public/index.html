@@ -12,31 +12,27 @@
           <div class="calHeader" ng-repeat="name in names">{{name}}</div>
           <table cellpadding="12" align="center">
             <tr class="calBody r1">
-              <td ng-repeat="day in calRows.row1 track by $index">{{day}}</td>
+              <td ng-repeat="day in calRows.row1 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
             </tr>
             <tr class="calBody r2">
-              <td ng-repeat="day in calRows.row2 track by $index">{{day}}</td>
+              <td ng-repeat="day in calRows.row2 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
             </tr>
             <tr class="calBody r3">
-              <td ng-repeat="day in calRows.row3 track by $index">{{day}}</td>
+              <td ng-repeat="day in calRows.row3 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
             </tr>
             <tr class="calBody r4">
-              <td ng-repeat="day in calRows.row4 track by $index">{{day}}</td>
+              <td ng-repeat="day in calRows.row4 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
             </tr>
             <tr class="calBody r5">
-              <td ng-repeat="day in calRows.row5 track by $index">{{day}}</td>
+              <td ng-repeat="day in calRows.row5 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
             </tr>
           </table>
       </div>
     </div>
-      <!--
-      <div class="scheduleContainer" ng-controller="scheduleController">
-        <h3>September 21, 2015</h3>
-        <div class="schedule" ng-hide="hasSchedule()"></div>
-        <div class="noSchedule" ng-show="!hasScedule()">No appointments Scheduled</div>
-      </div>
-      -->
-      <script src="/javascripts/index.js"></script>
 
+
+
+      <script src="/javascripts/calendar.js"></script>
+      <script src="/javascripts/services.js"></script>
     </body>
 </html>

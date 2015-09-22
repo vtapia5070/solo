@@ -14,6 +14,14 @@ var app = angular.module('calendarApp', [])
       row5: makeCal.setRows[4]
     }
     $scope.names = makeCal.names;
+    $scope.styleToday = function(day) {
+      if (day === makeCal.today) {
+        return {
+          "background-color": "#B0B8B5",
+          "border-radius": "50px"
+        }
+      }
+    };
   })
 
   .service('getCurrent', function(){
@@ -34,9 +42,10 @@ var app = angular.module('calendarApp', [])
 
   .service('makeCal', function(){
     var names = ['Sun','Mon','Tue','Wed','Thurs','Fri','Sat'];
+    var date = new Date();
+    var today = date.getDate();
     var generateCal = function () {
       var rows = [[]];
-      var date = new Date();
       var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
       var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
       var firstDayName = firstDay.toDateString().split(" ");
@@ -78,6 +87,7 @@ var app = angular.module('calendarApp', [])
     };
     return {
       setRows : generateCal(),
-      names: names
+      names: names,
+      today: today
     }
   })

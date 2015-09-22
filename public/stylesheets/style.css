@@ -6,6 +6,7 @@
   font-family: 'century gothic';
   font-weight: bold;
   text-align: center;
+  border-radius: 5px;
 }
 
 .calHeader {
@@ -21,4 +22,9 @@
 
 td:hover {
   background-color: #B0B8B5;
+}
+.today {
+  color: #fff;
+  border: purple;
+
 }
