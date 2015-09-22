@@ -4,35 +4,39 @@
   </head>
     <body>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
-      <div class="calendarContainer">
-        <table class="dayHeader" cellpadding="8" align="center">
-          <td>sun</td> 
-          <td>mon</td> 
-          <td>tue</td> 
-          <td>wed</td> 
-          <td>thu</td> 
-          <td>fri</td> 
-          <td>sat</td>
-        </table>
-        <table class="dayBody" cellpadding="12" align="center">
-          <tr>
-            <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
-          </tr>
-          <tr>
-            <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
-          </tr>
-          <tr>
-            <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
-          </tr>
-          <tr>
-            <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-          </tr>
-          <tr>
-            <td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
-          </tr>
-        </table>   
-      </div>
+    <script src="/bower_components/angular/angular.js"></script>
 
-      <script src="javascripts/index.js"></script>
+    <div ng-app="calendarApp">
+      <div class="calendarContainer" ng-controller="headerController">
+        <h2>{{dateinfo.month}} {{dateinfo.year}}</h2>
+          <div class="calHeader" ng-repeat="name in names">{{name}}</div>
+          <table cellpadding="12" align="center">
+            <tr class="calBody r1">
+              <td ng-repeat="day in calRows.row1 track by $index">{{day}}</td>
+            </tr>
+            <tr class="calBody r2">
+              <td ng-repeat="day in calRows.row2 track by $index">{{day}}</td>
+            </tr>
+            <tr class="calBody r3">
+              <td ng-repeat="day in calRows.row3 track by $index">{{day}}</td>
+            </tr>
+            <tr class="calBody r4">
+              <td ng-repeat="day in calRows.row4 track by $index">{{day}}</td>
+            </tr>
+            <tr class="calBody r5">
+              <td ng-repeat="day in calRows.row5 track by $index">{{day}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+      <!--
+      <div class="scheduleContainer" ng-controller="scheduleController">
+        <h3>September 21, 2015</h3>
+        <div class="schedule" ng-hide="hasSchedule()"></div>
+        <div class="noSchedule" ng-show="!hasScedule()">No appointments Scheduled</div>
+      </div>
+      -->
+      <script src="/javascripts/index.js"></script>
+
     </body>
 </html>
