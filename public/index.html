@@ -2,51 +2,68 @@
 <html>
   <head>
   </head>
-    <body>
+    <body ng-app="calendarApp">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
     <script src="/bower_components/angular/angular.js"></script>
 
-    <div ng-app="calendarApp">
       <div class="calendarContainer" ng-controller="headerController">
         <h2>{{dateinfo.month}} {{dateinfo.year}}</h2>
           <div class="calHeader" ng-repeat="name in names">{{name}}</div>
           <table cellpadding="12" align="center">
             <tr class="calBody r1">
-              <td ng-repeat="day in calRows.row1 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
+              <td ng-repeat="day in calRows.row1 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
             </tr>
             <tr class="calBody r2">
-              <td ng-repeat="day in calRows.row2 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
+              <td ng-repeat="day in calRows.row2 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
             </tr>
             <tr class="calBody r3">
-              <td ng-repeat="day in calRows.row3 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
+              <td ng-repeat="day in calRows.row3 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
             </tr>
             <tr class="calBody r4">
-              <td ng-repeat="day in calRows.row4 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
+              <td ng-repeat="day in calRows.row4 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
             </tr>
             <tr class="calBody r5">
-              <td ng-repeat="day in calRows.row5 track by $index" ng-style="styleToday({{day}})">{{day}}</td>
+              <td ng-repeat="day in calRows.row5 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
             </tr>
           </table>
       </div>
-    </div>
+
 
     <div class="scheduleContainer" ng-controller="scheduleController">
-      <h3>September 21, 2015</h3>
-      <div>Creat new event</div>
-     <form name="newAppt" ng-controller="scheduleController as scheduleCtrl">
-
+      <h3>September 22, 2015</h3>
+      <div>Create new task</div>
+      <form name="newAppt" ng-submit="newRequest()">
         <label for="exampleInput">Time:</label>
-          <input type="time" id="timeInput" name="time" ng-model="request.time"
-            placeholder="HH:mm" min="08:00" max="17:00:00" required />
-        <input type="text" name="name" ng-model="user.name" placeholder="name" required>
-        <input type="text" name="email" ng-model="user.email" placeholder="email" required>
+        <input type="time" id="timeInput" name="time" ng-model="request.time"
+              placeholder="HH:mm" required >
+        <input type="text" name="name" ng-model="request.name" placeholder="name" required>
+        <input type="text" name="email" ng-model="request.email" placeholder="email" required>
         <input class="description" type="text" name="description" ng-model="request.description" placeholder="description" required>
-      <div class="schedule" ng-hide="hasSchedule()"></div>
-      <div class="noSchedule" ng-show="!hasScedule()">No appointments Scheduled</div>
+        <button ng-disabled="form.$invalid && form.$dirty" class="btn" type="submit">Submit</button>
+      </form>
+      <div ng-show="!request.length">No events scheduled</div>
+      <table class="scheduleT" cellpadding="15" ng-show="request.list.length">
+        <thead>
+          <th>Time:</th>
+          <th>Name:</th>
+          <th>Email:</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in request.list | orderBy: '+time'">
+            <td>{{item.time | date:'HH:mm'}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.description}} </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-      <script src="/javascripts/calendar.js"></script>
-      <script src="/javascripts/calServices.js"></script>
+    <script src="/javascripts/calendar/calendar.js"></script>
+    <script src="/javascripts/calendar/calServices.js"></script>
+    <script src="/javascripts/schedule/schedule.js"></script>
+    <script src="/javascripts/schedule/scheduleServices.js"></script>
 
     </body>
 </html>

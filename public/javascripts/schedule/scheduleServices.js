@@ -1,15 +1,24 @@
 angular.module('schedule.services', [])
-//probabbly want to sent to factory.js to send request
+
  .factory('sendRequest', function ($http){
   var newRequest = function(obj) {
-    console.log('HELLO');
     return $http({
       method: "POST",
       url: '/post',
       data: obj
     })
+  };
+  var retrieve = function (){
+    return $http({
+      method: "GET",
+      url: '/post'
+    })
+    .then(function (resp) {
+      return resp.data;
+    }); 
+  };
+  return {
+    newRequest: newRequest,
+    retrieve: retrieve
   }
-    return {
-      newRequest: newRequest
-    }
  })

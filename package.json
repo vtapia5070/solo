@@ -13,6 +13,8 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
+    "mysql": "^2.9.0",
+    "sequelize": "^3.9.0",
     "serve-favicon": "~2.3.0"
   },
   "description": "#Summary Pencil Me In is an application for professionals who rely their daily practice based on a schedule.",

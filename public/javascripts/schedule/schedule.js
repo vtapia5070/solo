@@ -1,21 +1,37 @@
 angular.module('calendar.scheduleApp', ['schedule.services'])
 
 .controller('scheduleController', function ($scope, $location, sendRequest) {
-  $scope.request = {};
+  $scope.request = {
+    list: []
+  };
+  $scope.showData = false;
+  $scope.hasData = function () {
+    console.log("hasData", $scope.request.list.length);
+    if (!$scope.request.list.length) {
+      $scope.showData = false;
+    }
+  };
+
+  $scope.retrieve = function(){
+    sendRequest.retrieve()
+    .then(function(result) {
+      $scope.request.list = result;
+    })
+  };
+
   $scope.newRequest = function () {
-    console.log("berRequest called");
     sendRequest.newRequest($scope.request)
     .then(function(result){
-      console.log('what');
-      $location.path('/schedule');
+      $location = '/'
+      $scope.retrieve();
+      $scope.hasData = true;
     })
     .catch(function(error){
-      console.log("schedulecontroller", error);
     })
   }
 
   $scope.init = function() {
-    console.log("INITIATED SCEDULE");
+    $scope.retrieve();
   }
   $scope.init();
 })
