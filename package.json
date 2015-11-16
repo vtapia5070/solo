@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/vtapia5070/2015-08-solo#readme",
   "devDependencies": {
+    "angular": "~1.4.6",
     "bower": "^1.5.2"
   }
 }
