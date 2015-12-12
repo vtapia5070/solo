@@ -1,0 +1,17 @@
+which mysql
+brew install mysql
+
+stop:
+mysql.server stop
+
+start:
+mysql.server start
+
+schema:
+mysql -u root < server/schema.sql
+
+username:
+mysql -u root 
+
+mysql commands:
+\r (current db, connection id)

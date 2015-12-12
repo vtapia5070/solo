@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Sequelize = require("sequelize");
-var db = require('../server/db');
+var db = require('../db/db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
