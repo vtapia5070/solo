@@ -1,0 +1,19 @@
+<h2>{{dateinfo.month}} {{dateinfo.year}}</h2>
+  <div class="calHeader" ng-repeat="name in names">{{name}}</div>
+  <table cellpadding="12" align="center">
+    <tr class="calBody r1">
+      <td ng-repeat="day in calRows.row1 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
+    </tr>
+    <tr class="calBody r2">
+      <td ng-repeat="day in calRows.row2 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
+    </tr>
+    <tr class="calBody r3">
+      <td ng-repeat="day in calRows.row3 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
+    </tr>
+    <tr class="calBody r4">
+      <td ng-repeat="day in calRows.row4 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
+    </tr>
+    <tr class="calBody r5">
+      <td ng-repeat="day in calRows.row5 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
+    </tr>
+  </table>
