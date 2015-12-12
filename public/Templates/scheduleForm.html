@@ -1,9 +1,11 @@
-<form name="newAppt" ng-submit="newRequest()">
-  <label for="exampleInput">Time:</label>
-  <input type="time" id="timeInput" name="time" ng-model="request.time"
-        placeholder="HH:mm" required >
-  <input type="text" name="name" ng-model="request.name" placeholder="name" required>
-  <input type="text" name="email" ng-model="request.email" placeholder="email" required>
-  <input class="description" type="text" name="description" ng-model="request.description" placeholder="description" required>
-  <button ng-disabled="form.$invalid && form.$dirty" class="btn" type="submit">Submit</button>
-</form>
+<div ng-controller="scheduleController">
+  <form name="newAppt" ng-submit="newRequest()">
+    <label for="exampleInput">Time:</label>
+    <input type="time" id="timeInput" name="time" ng-model="request.time"
+          placeholder="HH:mm" required >
+    <input type="text" name="name" ng-model="request.name" placeholder="name" required>
+    <input type="text" name="email" ng-model="request.email" placeholder="email" required>
+    <input class="description" type="text" name="description" ng-model="request.description" placeholder="description" required>
+    <button ng-disabled="form.$invalid && form.$dirty" class="btn" type="submit">Submit</button>
+  </form>
+</div>

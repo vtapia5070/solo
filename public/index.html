@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
     <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Stylesheets/style.css" />
   </head>
     <body ng-app="calendarApp" ng-controller="mainController">
-
+    <!-- TODO: create Navbar -->
     <div class="calendarContainer" ng-include="templates[0].url"></div>
 
     <div class="scheduleContainer" ng-controller="scheduleController">
-      <h3>September 22, 2015</h3>
-      <div>Create new task</div>
-      <div ng-include="templates.schedule"></div>
-      <!-- <form name="newAppt" ng-submit="newRequest()">
-        <label for="exampleInput">Time:</label>
-        <input type="time" id="timeInput" name="time" ng-model="request.time"
-              placeholder="HH:mm" required >
-        <input type="text" name="name" ng-model="request.name" placeholder="name" required>
-        <input type="text" name="email" ng-model="request.email" placeholder="email" required>
-        <input class="description" type="text" name="description" ng-model="request.description" placeholder="description" required>
-        <button ng-disabled="form.$invalid && form.$dirty" class="btn" type="submit">Submit</button>
-      </form> -->
+      <h3 ng-controller="calendarController">{{dateinfo.month}} {{dateinfo.day}}, {{dateinfo.year}}</h3>
+      <button class="btn btn-default" ng-click="showForm('lg')">Create new task</button>
+      </div>
       <div ng-show="!request.length">No events scheduled</div>
       <table class="scheduleT" cellpadding="15" ng-show="request.list.length">
+        <!-- TODO: Move to template and fix time (display) -->
         <thead>
           <th>Time:</th>
           <th>Name:</th>
@@ -41,11 +35,11 @@
     </div>
 
     <script type="text/javascript" src="/config.js"></script>
-    <script src="/javascripts/app/mainController.js"></script>
-    <script src="/javascripts/calendar/calendar.js"></script>
-    <script src="/javascripts/calendar/calServices.js"></script>
-    <script src="/javascripts/schedule/schedule.js"></script>
-    <script src="/javascripts/schedule/scheduleServices.js"></script>
+    <script src="/Controllers/app/mainController.js"></script>
+    <script src="/Controllers/calendar/calendar.js"></script>
+    <script src="/Controllers/calendar/calServices.js"></script>
+    <script src="/Controllers/schedule/schedule.js"></script>
+    <script src="/Controllers/schedule/scheduleServices.js"></script>
 
     </body>
 </html>

@@ -17,6 +17,10 @@
   font-size: 14px;
 }
 
+.calTable {
+  padding: 12px;
+}
+
 .calBody {
   font-size: 12px;
 }
@@ -32,9 +36,11 @@ td:hover {
   margin: 30px;
   border-radius: 5px;
 }
+
 h3 {
   text-align: center
 }
+
 .description {
   height: 10px;
 }

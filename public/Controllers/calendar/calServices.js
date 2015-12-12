@@ -11,7 +11,7 @@ angular.module('calendar.services', [])
         return date.getFullYear();
       },
       getDay: function(){
-        date.getDate();
+        return date.getDate();
       }
     }
   })

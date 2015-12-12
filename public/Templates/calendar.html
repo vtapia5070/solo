@@ -1,7 +1,7 @@
 <div ng-controller="calendarController">
   <h2>{{dateinfo.month}} {{dateinfo.year}}</h2>
   <div class="calHeader" ng-repeat="name in names">{{name}}</div>
-  <table cellpadding="12" align="center">
+  <table class="calTable" cellpadding="12" align="center">
     <tr class="calBody r1">
       <td ng-repeat="day in calRows.row1 track by $index" ng-style="styleToday({{day}})" ng-controller="scheduleController" ng-click="hasData()">{{day}}</td>
     </tr>
